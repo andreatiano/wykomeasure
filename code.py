@@ -9,6 +9,7 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file", type={"csv", "txt"})
 dataset=[]
 list=[]
+righe=[]
 if spectra is not None:
     spectra_df = pd.read_csv(spectra)
     st.write(spectra_df)
@@ -25,10 +26,11 @@ if spectra is not None:
                i=i+1
                spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0])
                list.append(f'Wafer_{i}')
+               righe.append(f'Site {i}')
                waferdata=spectrafor_df.iloc[:,columnNumber]
                dataset.append(waferdata)
                finalDataset=np.array(dataset)
             plotData=st.expander('Final Dataset',True)
-            plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+            plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list, index=righe)
             plotData.dataframe(plotDataFrame)
             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
