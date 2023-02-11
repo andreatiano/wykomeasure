@@ -22,7 +22,7 @@ if spectra is not None:
         if allWafer is not None:  
             i=0
             for uploaded_file in allWafer:
-               i++
+               i=i+1
                spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0])
                list.append(f'Wafer_{i}')
                waferdata=spectrafor_df.iloc[:,columnNumber]
