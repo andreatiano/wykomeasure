@@ -17,9 +17,8 @@ if spectra is not None:
     column = st.multiselect(
     'select the correct column',spectra_df.columns.values.tolist())  
     allWafer = importExp.file_uploader("after rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
-    if column is not None:
-        columnNumber=spectra_df.columns.get_loc(column[0]) 
         if allWafer is not None:
+           columnNumber=spectra_df.columns.get_loc(column[0]) 
            for uploaded_file in allWafer:
                spectrafor_df = pd.read_csv(spectra,skiprows=rows)
                waferdata=spectrafor_df.iloc[:,columnNumber]
