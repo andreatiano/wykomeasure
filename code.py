@@ -7,13 +7,11 @@ st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
-spectra = importExp.file_uploader("upload file", type={"csv", "txt"},accept_multiple_files=True)
-for uploaded_file in spectra:
-     spectra1 = uploaded_file.read()
+spectra = importExp.file_uploader("upload file")
 list=[]
 dataset=[]
 if spectra is not None:
-     spectra_df = pd.read_csv(spectra1[1])
+     spectra_df = pd.read_csv(spectra)
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
      column = plotCol.multiselect(
@@ -21,7 +19,7 @@ if spectra is not None:
      plotCol.write(spectra_df)
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
-             allWafer = importExp.file_uploader("After rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
+             allWafer = importExp.file_uploader("After rows and column selection import all files",accept_multiple_files=True)
              i=0
              for uploaded_file in allWafer:
                 i=i+1
