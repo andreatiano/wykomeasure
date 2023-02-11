@@ -1,15 +1,14 @@
- import matplotlib.pyplot as plt
- import pandas as pd
- import streamlit as st
- import plotly.graph_objects as go
+import pandas as pd
+import streamlit as st
+import plotly.graph_objects as go
 
- st.set_page_config(layout="wide")
- plotCol, dataCol = st.columns([2,1])
- importExp=st.sidebar.expander('Import Option')
- Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
- spectra = importExp.file_uploader("upload file", type={"csv", "txt"})
- list=[]
- dataset=[]
+st.set_page_config(layout="wide")
+plotCol, dataCol = st.columns([2,1])
+importExp=st.sidebar.expander('Import Option')
+Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
+spectra = importExp.file_uploader("upload file", type={"csv", "txt"})
+list=[]
+dataset=[]
  if spectra is not None:
      spectra_df = pd.read_csv(spectra)
      st.write(spectra_df)
