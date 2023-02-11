@@ -28,7 +28,7 @@ if allWafer is not None:
                waferdata=spectrafor_df.iloc[:,columnNumber]
                dataset.append(waferdata)
                finalDataset=np.array(dataset)
-            plotData=dataCol.expander('Final Dataset')
+            plotData=st.expander('Final Dataset')
             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
             plotData.dataframe(plotDataFrame)
             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
