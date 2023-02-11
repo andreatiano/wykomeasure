@@ -12,11 +12,11 @@ list=[]
 dataset=[]
 if spectra is not None:
      spectra_df = pd.read_csv(spectra)
-     rows = st.multiselect(
+     rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
-     column = st.multiselect(
+     column = plotCol.multiselect(
      'select the correct column',spectra_df.columns.values.tolist())  
-     st.write(spectra_df)
+     plotCol.write(spectra_df)
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              allWafer = importExp.file_uploader("After rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
