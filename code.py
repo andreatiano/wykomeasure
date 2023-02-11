@@ -8,7 +8,7 @@ plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file", type={"csv", "txt"},accept_multiple_files=True)
-for uploaded_file in uploaded_files:
+for uploaded_file in spectra:
      spectra1 = uploaded_file.read()
 list=[]
 dataset=[]
