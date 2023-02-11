@@ -23,6 +23,7 @@ if spectra is not None:
                spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0]-1)
                waferdata=spectrafor_df.iloc[:,columnNumber]
                dataset.append(waferdata)
+               finalDataset=np.array(dataset)
             plotData=st.expander('fitted data',True)
-            plotDataFrame=pd.DataFrame(dataset)
+            plotDataFrame=pd.DataFrame(dataset.transpose())
             plotData.dataframe(plotDataFrame) 
