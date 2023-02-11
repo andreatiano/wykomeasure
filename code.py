@@ -9,7 +9,7 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file", type={"csv", "txt"})
 list=[]
 dataset=[]
- if spectra is not None:
+if spectra is not None:
      spectra_df = pd.read_csv(spectra)
      st.write(spectra_df)
      rows = st.multiselect(
