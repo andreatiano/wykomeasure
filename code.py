@@ -11,7 +11,6 @@ list=[]
 dataset=[]
 if spectra is not None:
      spectra_df = pd.read_csv(spectra)
-     st.write(spectra_df)
      rows = st.multiselect(
      'select the row of the first measure',spectra_df.index) 
      column = st.multiselect(
