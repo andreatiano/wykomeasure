@@ -11,7 +11,7 @@ allWafer = importExp.file_uploader("Import measurement files", type={"csv", "txt
 dataset=[]
 list=[]
 righe=[]
-if spectra is not None:
+if allWafer is not None:
     layout_df = pd.read_csv(allWafer[1])
     rows = st.multiselect(
     'select the row of the first measure',layout_df.index) 
