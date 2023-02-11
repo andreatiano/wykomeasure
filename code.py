@@ -25,3 +25,4 @@ if spectra is not None:
                dataset.append(waferdata)
             plotData=st.expander('fitted data',True)
             plotDataFrame=pd.DataFrame(dataset)
+            plotData.dataframe(plotDataFrame) 
