@@ -1,0 +1,8 @@
+numpy
+pandas
+plotly
+scipy
+streamlit
+matplotlib
+seaborn
+click==8.0.4
