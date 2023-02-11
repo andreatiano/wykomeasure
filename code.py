@@ -16,7 +16,6 @@ if spectra is not None:
     # spectra_df1=pd.read_csv(spectra,skiprows=rows-1)
     column = st.multiselect(
     'select the correct column',spectra_df.columns.values.tolist())  
-    st.write(column[0])
     allWafer = importExp.file_uploader("after rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
     if column is not None:
         columnNumber=spectra_df.columns.get_loc(column[0]) 
