@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
-allWafer = importExp.file_uploader("After rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
+allWafer = importExp.file_uploader("Import measurement files", type={"csv", "txt"},accept_multiple_files=True)
 dataset=[]
 list=[]
 righe=[]
