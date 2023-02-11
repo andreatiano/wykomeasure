@@ -20,7 +20,7 @@ if spectra is not None:
     if column and rows is not None:
             columnNumber=spectra_df.columns.get_loc(column[0]) 
             for uploaded_file in allWafer:
-               spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows-1)
+               spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0]-1)
                waferdata=spectrafor_df.iloc[:,columnNumber]
                dataset.append(waferdata)
             plotData=st.expander('fitted data',True)
