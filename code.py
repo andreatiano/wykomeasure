@@ -20,7 +20,7 @@ if spectra is not None:
         allWafer = importExp.file_uploader("after rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
         if allWafer is not None:      
             for uploaded_file in allWafer:
-               spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0]+1)
+               spectrafor_df = pd.read_csv(uploaded_file,skiprows=rows[0])
                waferdata=spectrafor_df.iloc[:,columnNumber]
                dataset.append(waferdata)
                finalDataset=np.array(dataset)
