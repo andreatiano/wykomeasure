@@ -9,7 +9,7 @@ importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file", type={"csv", "txt"},accept_multiple_files=True)
 for uploaded_file in uploaded_files:
-spectra1 = uploaded_file.read()
+     spectra1 = uploaded_file.read()
 list=[]
 dataset=[]
 if spectra is not None:
