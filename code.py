@@ -19,7 +19,7 @@ if spectra is not None:
     'select the correct column',layout_df.columns.values.tolist())  
     st.write(layout_df)
     if column and rows is not None:
-        columnNumber=layout_df.columns.get_loc(column[0])  
+            columnNumber=layout_df.columns.get_loc(column[0])  
             i=0
             for uploaded_file in allWafer:
                i=i+1
