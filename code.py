@@ -7,21 +7,19 @@ st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
-spectra = importExp.file_uploader("upload file", type={"csv", "txt"})
 allWafer = importExp.file_uploader("After rows and column selection import all files", type={"csv", "txt"},accept_multiple_files=True)
 dataset=[]
 list=[]
 righe=[]
 if spectra is not None:
-    spectra_df = pd.read_csv(allWafer[1])
+    layout_df = pd.read_csv(allWafer[1])
     rows = st.multiselect(
-    'select the row of the first measure',spectra_df.index) 
+    'select the row of the first measure',layout_df.index) 
     column = st.multiselect(
-    'select the correct column',spectra_df.columns.values.tolist())  
-    st.write(spectra_df)
+    'select the correct column',layout_df.columns.values.tolist())  
+    st.write(layout_df)
     if column and rows is not None:
-        columnNumber=spectra_df.columns.get_loc(column[0])
-        if allWafer is not None:  
+        columnNumber=layout_df.columns.get_loc(column[0])  
             i=0
             for uploaded_file in allWafer:
                i=i+1
