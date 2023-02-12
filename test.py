@@ -18,7 +18,7 @@ if spectra is not None:
              spectrafor_df = pd.read_csv(spectra[0])
              spectrafor_df1 = pd.read_csv(spectra[1])
              spectrafor_df2 = pd.read_csv(spectra[2])
-             spectrafor_df3 = pd.read_csv(spectra[2])
+             spectrafor_df3 = pd.read_csv(spectra[3])
              st.write(spectra[0])
              st.write(spectrafor_df)
              st.write(spectrafor_df1)
