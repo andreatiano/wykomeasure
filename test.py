@@ -11,7 +11,7 @@ spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
 data=[]
-spectra_df = pd.read_csv(spectra[1])
+spectra_df = pd.read_csv(spectra[0])
 if spectra_df is not None:
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
