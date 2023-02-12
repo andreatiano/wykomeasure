@@ -24,4 +24,5 @@ if spectra_df is not None:
              st.write(len(spectra))
              spectrafor_df = pd.read_csv(spectra[1])
              st.write(spectra)
+             st.write(spectrafor_df)
              
