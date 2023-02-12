@@ -22,7 +22,7 @@ if spectra_df is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
              st.write(len(spectra))
-             spectrafor_df = pd.read_csv(spectra[1])
+             spectrafor_df = pd.read_csv(spectra[3])
              st.write(spectra)
              st.write(spectrafor_df)
              
