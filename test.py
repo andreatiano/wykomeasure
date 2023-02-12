@@ -11,17 +11,29 @@ spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
 data=[]
-if spectra is not None:
-#              columnNumber=spectra_df.columns.get_loc(column[0]) 
+spectra_df = pd.read_csv(spectra[0])
+if spectra_df is not None:
+     rows = plotCol.multiselect(
+     'select the row of the first measure',spectra_df.index) 
+     column = plotCol.multiselect(
+     'select the correct column',spectra_df.columns.values.tolist())  
+     plotCol.write(spectra_df) 
+     if column and rows is not None:
+             columnNumber=spectra_df.columns.get_loc(column[0])  
+             waferdata1=spectra_df.iloc[rows[0]:,columnNumber]
+             dataset.append(waferdata1)
              i=0
-             st.write(len(spectra))
-             spectrafor_df = pd.read_csv(spectra[0])
-             spectrafor_df1 = pd.read_csv(spectra[1])
-             spectrafor_df2 = pd.read_csv(spectra[2])
-             spectrafor_df3 = pd.read_csv(spectra[3])
-             st.write(spectra[0])
-             st.write(spectrafor_df)
-             st.write(spectrafor_df1)
-             st.write(spectrafor_df2)
-             st.write(spectrafor_df3)
-             
+             for l in range (1,len(spectra)):
+                i=i+1
+                spectrafor_df = pd.read_csv(spectra[l],skiprows=rows[0])
+                list.append(f'Wafer_{i}')
+                waferdata=spectrafor_df.iloc[:,columnNumber]
+                
+                dataset.append(waferdata)
+             finalDataset=np.array(dataset)
+             plotData=st.expander('Final Dataset',True)
+             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotData=dataCol.expander('Final Dataset')
+             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotData.dataframe(plotDataFrame)
+             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
