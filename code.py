@@ -6,7 +6,8 @@ import numpy as np
 st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
-verified=importExp.button('Starts merging files')
+importExp.subheader('After import press the button')
+verified=importExp.button('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 
