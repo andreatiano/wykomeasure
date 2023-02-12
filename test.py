@@ -29,9 +29,8 @@ if spectra_df is not None:
                 spectrafor_df = pd.read_csv(spectra[l],skiprows=rows[0])
                 list.append(f'Wafer_{i}')
                 waferdata=spectrafor_df.iloc[:,columnNumber]
-                
-                dataset.append(waferdata)
-             st.write(dataset)
+                st.write(waferdata)
+                dataset.append(waferdata
              finalDataset=np.array(dataset)
              plotData=st.expander('Final Dataset',True)
              plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
