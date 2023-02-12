@@ -12,7 +12,8 @@ list=[]
 dataset=[]
 data=[]
 for uploaded_file in spectra:
-     data.append(uploaded_file.getvalue())
+     data.append(uploaded_file)
+spectra_df = pd.read_csv(data[1])
 st.write(data[1])
 if spectra is not None:
      
