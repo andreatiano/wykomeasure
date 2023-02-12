@@ -21,6 +21,7 @@ if spectra_df is not None:
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0])  
              waferdata1=spectra_df.iloc[rows[0]-1:,columnNumber]
+             st.write(waferdata1)
              dataset.append(waferdata1)
              i=0
              for l in range (1,len(spectra)):
