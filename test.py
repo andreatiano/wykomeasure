@@ -14,6 +14,7 @@ data=[]
 for uploaded_file in spectra:
      data.append(uploaded_file)
 spectra_df = pd.read_csv(data[1])
+st.write(data)
 if spectra_df is not None:
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
