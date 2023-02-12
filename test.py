@@ -11,7 +11,6 @@ spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
 data=[]
-st.write(spectra)
 spectra_df = pd.read_csv(spectra[1])
 if spectra_df is not None:
      rows = plotCol.multiselect(
@@ -22,6 +21,7 @@ if spectra_df is not None:
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
+             st.write(len(spectra))
              for l in range (len(spectra)):
                 i=i+1
                 spectrafor_df = pd.read_csv(spectra[l])
