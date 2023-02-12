@@ -11,7 +11,8 @@ spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
 for uploaded_file in spectra:
-     st.write(uploaded_file.getvalue())
+     data=uploaded_file.getvalue()
+st.write(data[1])
 if spectra is not None:
      spectra_df = pd.read_csv(spectra[1])
      rows = plotCol.multiselect(
