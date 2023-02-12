@@ -15,7 +15,7 @@ st.write(spectra)
 for uploaded_file in spectra:
      data.append(uploaded_file)
 st.write(data)
-spectra_df = pd.read_csv(data[1])
+# spectra_df = pd.read_csv(data[1])
 if spectra_df is not None:
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
