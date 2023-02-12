@@ -25,9 +25,9 @@ if spectra_df is not None:
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
-             for i in len(data):
+             for l in len(data):
                 i=i+1
-                spectrafor_df = pd.read_csv(data[1],skiprows=rows[0])
+                spectrafor_df = pd.read_csv(data[l],skiprows=rows[0])
                 st.write(spectrafor_df)
                 list.append(f'Wafer_{i}')
                 waferdata=spectrafor_df.iloc[:,columnNumber]
