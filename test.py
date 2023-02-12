@@ -10,7 +10,8 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
-st.write(spectra.getvalue())
+for uploaded_file in spectra:
+     st.write(uploaded_file.getvalue())
 if spectra is not None:
      spectra_df = pd.read_csv(spectra[1])
      rows = plotCol.multiselect(
