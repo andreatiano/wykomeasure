@@ -6,13 +6,13 @@ import numpy as np
 st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
+verified=importExp.button('Starts merging files')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
-verified=st.sidebar.button('starts merging files')
 
 list=[]
 dataset=[]
-if Data is not None:
+if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
