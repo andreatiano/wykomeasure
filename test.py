@@ -10,6 +10,7 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
+data=[]
 for uploaded_file in spectra:
      data.append(uploaded_file.getvalue())
 st.write(data[1])
