@@ -32,6 +32,6 @@ if spectra_df is not None:
              st.write(dataset)
              finalDataset=np.array(dataset)
              plotData=st.expander('Final Dataset',True)
-             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotDataFrame=pd.DataFrame(finalDataset.transpose())
              plotData.dataframe(plotDataFrame)
              plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
