@@ -11,18 +11,17 @@ spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
 data=[]
-spectra_df = pd.read_csv(spectra[0])
-if spectra_df is not None:
-     rows = plotCol.multiselect(
-     'select the row of the first measure',spectra_df.index) 
-     column = plotCol.multiselect(
-     'select the correct column',spectra_df.columns.values.tolist())  
-#      plotCol.write(spectra_df)
-     if column and rows is not None:
-             columnNumber=spectra_df.columns.get_loc(column[0]) 
+if spectra is not None:
+#              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
              st.write(len(spectra))
-             spectrafor_df = pd.read_csv(spectra[1])
+             spectrafor_df = pd.read_csv(spectra[0])
+             spectrafor_df1 = pd.read_csv(spectra[1])
+             spectrafor_df2 = pd.read_csv(spectra[2])
+             spectrafor_df3 = pd.read_csv(spectra[2])
              st.write(spectra[0])
              st.write(spectrafor_df)
+             st.write(spectrafor_df1)
+             st.write(spectrafor_df2)
+             st.write(spectrafor_df3)
              
