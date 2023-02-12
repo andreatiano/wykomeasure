@@ -7,10 +7,10 @@ st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
-spectra = importExp.file_uploader("upload file")
+spectra = importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
-if spectra is not None:
+st.write(spectra)
      spectra_df = pd.read_csv(spectra)
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
