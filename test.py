@@ -12,10 +12,7 @@ list=[]
 dataset=[]
 data=[]
 st.write(spectra)
-for uploaded_file in spectra:
-     data.append(uploaded_file)
-st.write(data)
-spectra_df = pd.read_csv(data[1])
+spectra_df = pd.read_csv(spectra[1])
 if spectra_df is not None:
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
@@ -25,7 +22,7 @@ if spectra_df is not None:
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
-             for l in len(data):
+             for l in range (len(spectra)):
                 i=i+1
                 spectrafor_df = pd.read_csv(data[l],skiprows=rows[0])
                 st.write(spectrafor_df)
