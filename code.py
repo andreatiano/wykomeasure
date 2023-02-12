@@ -10,8 +10,8 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
 dataset=[]
-Data_df = pd.read_csv(Data[0])
 if Data is not None:
+     Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
      column = plotCol.multiselect(
