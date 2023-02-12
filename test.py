@@ -20,8 +20,8 @@ if spectra_df is not None:
      plotCol.write(spectra_df) 
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0])  
-             waferdata1=spectra_df.iloc[rows[0]:,columnNumber]
-             dataset.append(float(waferdata1))
+             waferdata1=np.array(spectra_df.iloc[rows[0]:,columnNumber])
+             dataset.append(waferdata1)
              st.write(dataset)
              i=0
              for l in range (1,len(spectra)):
