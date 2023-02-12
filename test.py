@@ -14,9 +14,7 @@ data=[]
 for uploaded_file in spectra:
      data.append(uploaded_file)
 spectra_df = pd.read_csv(data[1])
-st.write(data[1])
-if spectra is not None:
-     
+if spectra_df is not None:
      rows = plotCol.multiselect(
      'select the row of the first measure',spectra_df.index) 
      column = plotCol.multiselect(
@@ -24,7 +22,6 @@ if spectra is not None:
      plotCol.write(spectra_df)
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
-             allWafer = importExp.file_uploader("After rows and column selection import all files",accept_multiple_files=True)
              i=0
              for uploaded_file in allWafer:
                 i=i+1
