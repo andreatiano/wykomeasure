@@ -12,7 +12,7 @@ list=[]
 dataset=[]
 for uploaded_file in spectra:
      data=uploaded_file.getvalue()
-st.write(data[1])
+st.write(data)
 if spectra is not None:
      spectra_df = pd.read_csv(spectra[1])
      rows = plotCol.multiselect(
