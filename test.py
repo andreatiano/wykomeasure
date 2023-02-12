@@ -25,7 +25,6 @@ if spectra_df is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
              for uploaded_file1 in data:
-                st.write(uploaded_file1)
                 i=i+1
                 spectrafor_df = pd.read_csv(uploaded_file1,skiprows=rows[0])
                 list.append(f'Wafer_{i}')
