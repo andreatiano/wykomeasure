@@ -21,16 +21,15 @@ if spectra_df is not None:
      if column and rows is not None:
              columnNumber=spectra_df.columns.get_loc(column[0])  
              waferdata1=spectra_df.iloc[rows[0]:,columnNumber]
-             st.write(waferdata1)
              dataset.append(waferdata1)
+             st.write(waferdata1)
              i=0
              for l in range (1,len(spectra)):
                 i=i+1
                 spectrafor_df = pd.read_csv(spectra[l],skiprows=rows[0])
                 list.append(f'Wafer_{i}')
                 waferdata=spectrafor_df.iloc[:,columnNumber]
-                st.write(waferdata)
-                dataset.append(waferdata
+                dataset.append(waferdata)
              finalDataset=np.array(dataset)
              plotData=st.expander('Final Dataset',True)
              plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
