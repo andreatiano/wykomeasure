@@ -22,17 +22,5 @@ if spectra_df is not None:
              columnNumber=spectra_df.columns.get_loc(column[0]) 
              i=0
              st.write(len(spectra))
-             for l in range (len(spectra)):
-                i=i+1
-                spectrafor_df = pd.read_csv(spectra[l])
-                st.write(spectrafor_df)
-                list.append(f'Wafer_{i}')
-                waferdata=spectrafor_df.iloc[:,columnNumber]
-                dataset.append(waferdata)
-                finalDataset=np.array(dataset)
-             plotData=st.expander('Final Dataset',True)
-             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
-             plotData=dataCol.expander('Final Dataset')
-             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
-             plotData.dataframe(plotDataFrame)
-             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
+             spectrafor_df = pd.read_csv(spectra[l])
+             
