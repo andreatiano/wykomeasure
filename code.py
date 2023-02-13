@@ -24,6 +24,8 @@ if verified:
              columnNumber=Data_df.columns.get_loc(column[0])  
              waferdata1=Data_df.iloc[rows[0]:,columnNumber]
              dataset.append(waferdata1)
+             result1 = parse.search('CarrierAtPort{}_', Data[0])
+             result1.fixed
              list.append(Data[0])
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
