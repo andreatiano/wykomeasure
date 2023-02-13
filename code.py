@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
 importExp.subheader('After import press the button')
-verified=importExp.button('Press to start')
+verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 
@@ -20,9 +20,7 @@ if verified:
      column = plotCol.multiselect(
      'select the correct column',Data_df.columns.values.tolist())  
      plotCol.write(Data_df) 
-     verified=True
      if column and rows is not None:
-             verified=True
              columnNumber=Data_df.columns.get_loc(column[0])  
              waferdata1=Data_df.iloc[rows[0]:,columnNumber]
              dataset.append(waferdata1)
