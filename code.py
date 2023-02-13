@@ -24,12 +24,12 @@ if verified:
              columnNumber=Data_df.columns.get_loc(column[0])  
              waferdata1=Data_df.iloc[rows[0]:,columnNumber]
              dataset.append(waferdata1)
-             result1 = parse.search('CarrierAtPort{}_', Data[0].name)
-             list.append(result1.fixed)
+             result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
+             list.append('Wafer_'+result1.fixed)
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
-                result = parse.search('CarrierAtPort{}_', Data[l].name)
-                list.append(result.fixed)
+                result = parse.search('CarrierAtPort1.{}_', Data[l].name)
+                list.append('Wafer_'+result.fixed)
                 waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
