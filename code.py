@@ -25,16 +25,15 @@ if verified:
              waferdata1=Data_df.iloc[rows[0]:,columnNumber]
              dataset.append(waferdata1)
              result1 = parse.search('CarrierAtPort{}_', Data[0].name)
-             result1.fixed
-             list.append(result1)
+             list.append(result1.fixed)
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
-                list.append(Data[l])
+                result = parse.search('CarrierAtPort{}_', Data[l].name)
+                list.append(result.fixed)
                 waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
              plotData=dataCol.expander('Final Dataset',True)
-             plotDataFrame=pd.DataFrame(finalDataset.transpose())
-             plotDataFrame2=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
              plotData.dataframe(plotDataFrame)
-             plotData.download_button('Download current Dataset',plotDataFrame2.to_csv().encode('utf-8'),'Measure.csv')
+             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
