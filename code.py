@@ -35,5 +35,6 @@ if verified:
              finalDataset=np.array(dataset)
              plotData=dataCol.expander('Final Dataset',True)
              plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotDataFrame = details.sort_index(axis = 1)
              plotData.dataframe(plotDataFrame)
              plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
