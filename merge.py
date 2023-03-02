@@ -40,5 +40,5 @@ if verified:
                               'select the values of the pivot tablen',dataset.columns) 
              finaldataset=dataset.pivot(index=index, columns=col, values=value)
              plotData=st.expander('Final Dataset',True)
-             plotData.table(finalDataset)
-             plotData.download_button('Download current Dataset',finalDataset.to_csv().encode('utf-8'),'Measure.csv')
+             plotData.table(finaldataset)
+             plotData.download_button('Download current Dataset',finaldataset.to_csv().encode('utf-8'),'Measure.csv')
