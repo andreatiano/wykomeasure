@@ -15,7 +15,7 @@ if verified:
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
      plotCol.write(Data_df) 
-     newcol=Data_df.columns.values.tolist().appned('Wafer')
+     newcol=Data_df.columns.values.tolist().append('Wafer')
      index = plotCol.multiselect(
      'select the index of the pivot table',newcol)  
      col = plotCol.multiselect(
