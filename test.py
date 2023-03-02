@@ -11,7 +11,6 @@ verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 
-list=[]
 dataset=[]
 if verified:
      Data_df = pd.read_csv(Data[0])
@@ -33,7 +32,7 @@ if verified:
                 waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
-             finalDataset=finalDataset.reshape(len(waferdata1))
+             finalDataset=finalDataset.reshape(1,len(waferdata1)*len(Data))
              plotData=dataCol.expander('Final Dataset',True)
              plotDataFrame=pd.DataFrame(finalDataset)
              plotData.dataframe(plotDataFrame)
