@@ -39,7 +39,7 @@ if verified:
                          'select the column of the pivot table',dataset.columns)  
              value = plotCol.multiselect(
                               'select the values of the pivot tablen',dataset.columns) 
-             finaldataset=dataset.pivot(index=index, columns=col, values=value)
+             finaldataset=dataset.pivot_table(index=index, columns=col, values=value)
              plotData=st.expander('Final Dataset',True)
              plotData.table(finaldataset)
              plotData.download_button('Download current Dataset',finaldataset.to_csv(),'Measure.csv')
