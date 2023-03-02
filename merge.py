@@ -41,4 +41,5 @@ if verified:
              finaldataset=dataset.pivot(index=index, columns=col, values=value)
              plotData=st.expander('Final Dataset',True)
              plotData.table(finaldataset)
-             plotData.download_button('Download current Dataset',finaldataset.to_csv(),'Measure.csv')
+             writer = pd.ExcelWriter('measure.xlsx')
+             plotData.download_button('Download current Dataset',finaldataset.to_to_excel(writer),'Measure')
