@@ -33,7 +33,7 @@ if verified:
                 list2.append(result.fixed)
                 list2=list2*dimension
                 list.append(list2)
-             finalDatase=dataset[column]
+             finalDatase=dataset
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
              plotData.download_button('Download current Dataset',finalDatase.to_csv().encode('utf-8'),'Measure.csv')
