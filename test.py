@@ -31,7 +31,7 @@ if verified:
                 result = parse.search('CarrierAtPort1.{}.', Data[l].name)
                 list.append(f'Wafer_{result.fixed}'*leng)
                 list=np.array(list).T
-                waferdata'Datafor_df.iloc[:,columnNumber]
+                waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
              finalDataset=finalDataset.reshape(1,len(waferdata1)*len(Data))
