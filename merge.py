@@ -34,7 +34,7 @@ if verified:
                 list=list+list2
              st.write(list)
              dataset['wafer']=list
-             finalDatase=dataset[column,wafer]
+             finalDatase=dataset[column,'wafer']
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
              plotData.download_button('Download current Dataset',finalDatase.to_csv().encode('utf-8'),'Measure.csv')
