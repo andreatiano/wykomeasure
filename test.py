@@ -33,7 +33,7 @@ if verified:
                 waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
-             finalDataset=finalDataset.reshape(Llen(waferdata1))
+             finalDataset=finalDataset.reshape(len(waferdata1))
              plotData=dataCol.expander('Final Dataset',True)
              plotDataFrame=pd.DataFrame(finalDataset)
              plotData.dataframe(plotDataFrame)
