@@ -34,7 +34,8 @@ if verified:
                 list2.append(result.fixed)
                 list2=list2*dimension
                 list.append(list2)
-             dataset['wafer']=list
+             print(list)
+             #dataset['wafer']=list
              finalDatase=dataset[column]
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
