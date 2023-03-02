@@ -22,6 +22,7 @@ if verified:
      if column and rows is not None:
              columnNumber=Data_df.columns.get_loc(column[0])  
              dataset=Data_df.iloc[rows[0]:]
+             dataset.columns=Data_df.columns
              result1 = parse.search('CarrierAtPort1.{}.', Data[0].name)
              list.append(result1.fixed)
              dimension=len(dataset)
