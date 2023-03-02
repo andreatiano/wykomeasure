@@ -11,7 +11,6 @@ verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
-listdata
 dataset=[]
 if verified:
      Data_df = pd.read_csv(Data[0])
