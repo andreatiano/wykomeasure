@@ -15,13 +15,7 @@ if verified:
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
      plotCol.write(Data_df) 
-     index = plotCol.multiselect(
-     'select the index of the pivot table',Data_df.columns)  
-     col = plotCol.multiselect(
-     'select the column of the pivot table',Data_df.columns)  
-     value = plotCol.multiselect(
-     'select the values of the pivot tablen',Data_df.columns) 
-     if column and rows is not None:  
+     if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
@@ -38,6 +32,12 @@ if verified:
              dataset['wafer']=list
              #column.append('Wafer')
              #finalDatase=dataset[column]
+             index = plotCol.multiselect(
+                    'select the index of the pivot table',dataset.columns)  
+             col = plotCol.multiselect(
+                         'select the column of the pivot table',dataset.columns)  
+             value = plotCol.multiselect(
+                              'select the values of the pivot tablen',dataset.columns) 
              finaldataset=dataset.pivot(index=index, columns=col, values=value)
              plotData=st.expander('Final Dataset',True)
              plotData.table(finalDataset)
