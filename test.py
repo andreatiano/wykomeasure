@@ -23,7 +23,7 @@ if verified:
      if column and rows is not None:
              columnNumber=Data_df.columns.get_loc(column[0])  
              waferdata1=Data_df.iloc[rows[0]:,columnNumber]
-             dataset=waferdata1
+             dataset.append(waferdata1)
              result1 = parse.search('CarrierAtPort1.{}.', Data[0].name)
              list.append(f'Wafer_{result1.fixed}')
              for l in range (1,len(Data)):
