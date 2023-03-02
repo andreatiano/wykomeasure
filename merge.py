@@ -14,11 +14,16 @@ if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
-     column = plotCol.multiselect(
-     'select the correct column',Data_df.columns.values.tolist())  
      plotCol.write(Data_df) 
-     if column and rows is not None:
-             columnNumber=Data_df.columns.get_loc(column[0])  
+     newcol=Data_df.columns.values.tolist().appned('Wafer')
+     index = plotCol.multiselect(
+     'select the index of the pivot table',newcol)  
+     col = plotCol.multiselect(
+     'select the column of the pivot table',newcol)  
+     value = plotCol.multiselect(
+     'select the values of the pivot tablen',newcol) 
+     plotCol.write(Data_df) 
+     if column and rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
@@ -32,10 +37,10 @@ if verified:
                 list2=result.fixed
                 list2=list2*dimension
                 list=list+list2
-             st.write(list)
              dataset['wafer']=list
-             column.append('wafer')
-             finalDatase=dataset[column]
-             plotData=dataCol.expander('Final Dataset',True)
-             plotData.dataframe(finalDatase)
-             plotData.download_button('Download current Dataset',finalDatase.to_csv().encode('utf-8'),'Measure.csv')
+             #column.append('Wafer')
+             #finalDatase=dataset[column]
+             finaldataset=dataset.pivot(index=index, columns=col, values=value)
+             plotData=st.expander('Final Dataset',True)
+             plotData.table(finalDataset)
+             plotData.download_button('Download current Dataset',finalDataset.to_csv().encode('utf-8'),'Measure.csv')
