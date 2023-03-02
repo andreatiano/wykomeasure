@@ -15,14 +15,13 @@ if verified:
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
      plotCol.write(Data_df) 
-     newcol=Data_df.columns.values.tolist().append('Wafer')
+     newcol=Data_df.columns.append('Wafer')
      index = plotCol.multiselect(
      'select the index of the pivot table',newcol)  
      col = plotCol.multiselect(
      'select the column of the pivot table',newcol)  
      value = plotCol.multiselect(
      'select the values of the pivot tablen',newcol) 
-     plotCol.write(Data_df) 
      if column and rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
