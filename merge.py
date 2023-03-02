@@ -30,7 +30,7 @@ if verified:
                 dataset.append(Datafor_df)
                 result = parse.search('CarrierAtPort1.{}.', Data[l].name)
                 list.append(f'Wafer_{result.fixed}')
-             finalDatase=dataset[column]
+             finalDatase=dataset[column[0]]
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
              plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
