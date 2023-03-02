@@ -31,4 +31,4 @@ if verified:
              finalDatase=dataset[column]
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
-             plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
+             plotData.download_button('Download current Dataset',finalDatase.to_csv().encode('utf-8'),'Measure.csv')
