@@ -41,4 +41,4 @@ if verified:
              finaldataset=dataset.pivot(index=index, columns=col, values=value)
              plotData=st.expander('Final Dataset',True)
              plotData.table(finaldataset)
-             plotData.download_button('Download current Dataset',finaldataset.to_csv(writer),'Measure.csv')
+             plotData.download_button('Download current Dataset',finaldataset.to_csv(),'Measure.csv')
