@@ -25,11 +25,11 @@ if verified:
              dataset.append(waferdata1)
              result1 = parse.search('CarrierAtPort1.{}.', Data[0].name)
              leng= len(waferdata1)
-             list.append(f'Wafer_{result1.fixed}'leng)
+             list.append(f'Wafer_{result1.fixed}'*leng)
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
                 result = parse.search('CarrierAtPort1.{}.', Data[l].name)
-                list.append(f'Wafer_{result.fixed}'leng)
+                list.append(f'Wafer_{result.fixed}'*leng)
                 waferdata=Datafor_df.iloc[:,columnNumber]
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
