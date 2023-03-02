@@ -10,7 +10,7 @@ importExp.subheader('After import press the button')
 verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
-list=[]
+
 if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
@@ -22,12 +22,16 @@ if verified:
              columnNumber=Data_df.columns.get_loc(column[0])  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}.', Data[0].name)
-             list.append(f'Wafer_{result1.fixed}')
+             list =pd.series(f'Wafer_{result1.fixed}')
+             dimension=len(dataset)
+             list=list*dimension
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
                 dataset.append(Datafor_df)
                 result = parse.search('CarrierAtPort1.{}.', Data[l].name)
-                list.append(f'Wafer_{result.fixed}')
+                list2=pd.series(f'Wafer_{result.fixed}')
+                list2=list2*dimension
+                list.append(list2)
              finalDatase=dataset[column]
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
