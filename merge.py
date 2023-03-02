@@ -10,7 +10,6 @@ importExp.subheader('After import press the button')
 verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
-list=[]
 if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
@@ -22,7 +21,7 @@ if verified:
              columnNumber=Data_df.columns.get_loc(column[0])  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
-             list.append(result1.fixed)
+             list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
              for l in range (1,len(Data)):
