@@ -34,6 +34,6 @@ if verified:
                 dataset.append(waferdata)
              finalDataset=np.array(dataset)
              plotData=dataCol.expander('Final Dataset',True)
-             plotDataFrame=pd.DataFrame(finalDataset.transpose(),columns=list)
+             plotDataFrame=pd.DataFrame(finalDataset)
              plotData.dataframe(plotDataFrame)
              plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
