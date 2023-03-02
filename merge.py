@@ -11,7 +11,6 @@ verified=importExp.checkbox('Press to start')
 Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 list=[]
-list2=[]
 if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
@@ -22,7 +21,7 @@ if verified:
      if column and rows is not None:
              columnNumber=Data_df.columns.get_loc(column[0])  
              dataset=Data_df.iloc[rows[0]:]
-             result1 = parse.search('CarrierAtPort1.{}.', Data[0].name)
+             result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list.append(result1.fixed)
              dimension=len(dataset)
              list=list*dimension
@@ -30,8 +29,8 @@ if verified:
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
                 Datafor_df.columns=Data_df.columns.values.tolist()
                 dataset=pd.concat([dataset,Datafor_df],axis=0)
-                result = parse.search('CarrierAtPort1.{}.', Data[l].name)
-                list2.append(result.fixed)
+                result = parse.search('CarrierAtPort1.{}_', Data[l].name)
+                list2=result.fixed
                 list2=list2*dimension
                 list.append(list2)
              st.write(list)
