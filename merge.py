@@ -34,7 +34,7 @@ if verified:
                 list2.append(result.fixed)
                 list2=list2*dimension
                 list.append(list2)
-             print(list)
+             st.write(list)
              #dataset['wafer']=list
              finalDatase=dataset[column]
              plotData=dataCol.expander('Final Dataset',True)
