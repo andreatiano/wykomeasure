@@ -33,7 +33,7 @@ if verified:
                 list2=list2*dimension
                 list=list+list2
              st.write(list)
-             #dataset['wafer']=list
+             dataset['wafer']=list
              finalDatase=dataset[column]
              plotData=dataCol.expander('Final Dataset',True)
              plotData.dataframe(finalDatase)
