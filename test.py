@@ -35,6 +35,6 @@ if verified:
              finalDataset=np.array(dataset)
              finalDataset= finalDataset.flatten()
              plotData=dataCol.expander('Final Dataset',True)
-             plotDataFrame=pd.DataFrame(finalDataset.transpose())
+             plotDataFrame=pd.DataFrame(finalDataset)
              plotData.dataframe(plotDataFrame)
              plotData.download_button('Download current Dataset',plotDataFrame.to_csv().encode('utf-8'),'Measure.csv')
