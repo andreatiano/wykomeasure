@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 import seaborn as sns
-import plotly.express as px
+import matplotlib.pyplot as plt
 import numpy as np
 import parse
 st.set_page_config(layout="wide")
@@ -34,8 +34,22 @@ if verified:
              dataset['wafer']=list
              #column.append('Wafer')
              #finalDatase=dataset[column]
+             
              if rows is not None:  
                st.write(dataset) 
+               x= plotCol.multiselect(
+                    'select x',dataset.columns)  
+               y= plotCol.multiselect(
+                         'select y',dataset.columns)  
+               group= plotCol.multiselect(
+                         'select how to group the line',dataset.columns) 
+               fig1=plt.figure()
+               sns.lineplot(x=x, 
+               y=y,
+               hue=group, 
+               palette=['b','r'],
+               data=dataset)
+               st.pyplot(fig)
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
