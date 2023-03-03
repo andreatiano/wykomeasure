@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import parse
@@ -33,18 +32,7 @@ if verified:
              dataset['wafer']=list
              #column.append('Wafer')
              #finalDatase=dataset[column]
-             jmp_colors = ["blue", "red", "green", "BlueViolet"]
-             x = plotCol.multiselect(
-                    'select the index of the pivot table',dataset.columns)  
-             y = plotCol.multiselect(
-                         'select the column of the pivot table',dataset.columns)  
-             fig = px.line(data_frame=dataset, x=x, y=y, color='Quarter', template='simple_white', width=700, color_discrete_sequence=jmp_colors)
-             fig.update_layout(layout, title_text = 'Room occupancy rate vs. Year and Quarter')
-             fig.update_xaxes(mirror=True)
-             fig.update_yaxes(mirror=True)
-             py.plot(fig, filename='jmp-basic graph builder')
-             fig.show()
-
+              st.write(dataset) 
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
