@@ -44,4 +44,4 @@ if verified:
                plotData.table(finaldataset)
                plotData.download_button('Download current Dataset',finaldataset.to_csv(),'Measure.csv')
              except:
-               st.write('Selezionare i parametri')
+               st.subheader('Select the parameter to generate a pivt table')
