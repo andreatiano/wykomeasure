@@ -14,10 +14,9 @@ if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index)
-     Data_df = pd.read_csv(Data[0],skiprows=rows[0])
      st.write(Data_df) 
      if rows is not None:  
-             dataset=Data_df
+             dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
              dimension=len(dataset)
