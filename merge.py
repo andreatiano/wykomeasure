@@ -14,7 +14,7 @@ if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
-     plotCol.write(Data_df) 
+     st.write(Data_df) 
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
