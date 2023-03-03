@@ -23,7 +23,7 @@ if verified:
              list=list*dimension
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
-                Datafor_df.columns=Data_df.columns.values.tolist()
+                Datafor_df.columns=Data_df.columns
                 dataset=pd.concat([dataset,Datafor_df],axis=0)
                 result = parse.search('CarrierAtPort1.{}_', Data[l].name)
                 list2=result.fixed
