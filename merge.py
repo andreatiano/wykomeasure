@@ -16,7 +16,7 @@ if verified:
      'select the row of the first measure',Data_df.index) 
      st.write(Data_df) 
      if rows is not None:  
-             dataset1= pd.read_csv(Data[0],skiprows=rows[0])
+             dataset1= pd.read_csv(Data_df[0],skiprows=rows[0])
              st.write(dataset1) 
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
