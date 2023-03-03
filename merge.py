@@ -44,10 +44,9 @@ if verified:
                group= plotCol.multiselect(
                          'select how to group the line',dataset.columns) 
                fig1=plt.figure()
-               sns.lineplot(data=dataset,x, 
+               sns.lineplot(x, 
                y,
-               hue=group, 
-               palette=['b','r'])
+               hue=group, data=dataset)
                st.pyplot(fig)
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
