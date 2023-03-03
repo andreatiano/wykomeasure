@@ -16,15 +16,16 @@ if verified:
      'select the row of the first measure',Data_df.index) 
      st.write(Data_df) 
      if rows is not None:  
-             dataset= pd.read_csv(Data[0],skiprows=rows[0])
+             dataset1= pd.read_csv(Data[0],skiprows=rows[0])
+             st.write(dataset1) 
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
-             dimension=len(dataset)
+             dimension=len(dataset1)
              list=list*dimension
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l],skiprows=rows[0])
                 Datafor_df.columns=Data_df.columns
-                dataset=pd.concat([dataset,Datafor_df],axis=0)
+                dataset=pd.concat([dataset1,Datafor_df],axis=0)
                 result = parse.search('CarrierAtPort1.{}_', Data[l].name)
                 list2=result.fixed
                 list2=list2*dimension
