@@ -15,6 +15,7 @@ if verified:
      Data_df = pd.read_csv(Data[0])
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index)
+     instrument= st.text_input('Instrument name','instrument 1')
      if rows is None:
           st.write(Data_df) 
      if rows is not None:  
@@ -23,6 +24,8 @@ if verified:
              list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
+             list3=instrument*dimension
+          
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
                 Datafor_df=Datafor_df.iloc[rows[0]:]
@@ -30,22 +33,16 @@ if verified:
                 result = parse.search('CarrierAtPort1.{}_', Data[l].name)
                 list2=result.fixed
                 list2=list2*dimension
+                list4=instrument*dimension
                 list=list+list2
-             dataset['wafer']=list
+                list3=list3+list4
+             dataset['Wafer']=list
+             dataset['Instrument']=list4
              #column.append('Wafer')
              #finalDatase=dataset[column]
              
              if rows is not None:  
                st.write(dataset) 
-               x= plotCol.multiselect(
-                    'select x',dataset.columns)  
-               y= plotCol.multiselect(
-                         'select y',dataset.columns)  
-               group= plotCol.multiselect(
-                         'select how to group the line',dataset.columns) 
-               fig1=plt.figure()
-               sns.relplot(data=dataset,kind='line',x='LocationIndex', y='Average Rv%',hue='wafer')
-               st.pyplot(fig1)
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
