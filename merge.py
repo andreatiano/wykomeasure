@@ -45,7 +45,7 @@ if verified:
                          'select how to group the line',dataset.columns) 
                fig1=plt.figure()
                sns.relplot(data=dataset,kind='line',x='LocationIndex', y='Average Rv%',hue='wafer')
-               st.pyplot(fig)
+               st.pyplot(fig1)
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
