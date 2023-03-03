@@ -44,7 +44,7 @@ if verified:
                group= plotCol.multiselect(
                          'select how to group the line',dataset.columns) 
                fig1=plt.figure()
-               sns.lineplot(data=dataset,x=x, 
+               sns.lineplot(dataset,x=x, 
                y=y,
                hue=group, 
                palette=['b','r'],)
