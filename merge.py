@@ -32,7 +32,7 @@ if verified:
              dataset['wafer']=list
              #column.append('Wafer')
              #finalDatase=dataset[column]
-              st.write(dataset) 
+             st.write(dataset) 
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
