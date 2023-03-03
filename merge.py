@@ -12,7 +12,7 @@ Delimiter= importExp.selectbox('Delimiter:',('\t',';',','))
 Data= importExp.file_uploader("upload file",accept_multiple_files=True)
 if verified:
      Data_df = pd.read_csv(Data[0])
-     rows m plotCol.multiselect(
+     rows =plotCol.multiselect(
      'select the row of the first measure',Data_df.index) 
      st.write(Data_df) 
      if rows is not None:  
