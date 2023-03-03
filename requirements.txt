@@ -8,3 +8,4 @@ seaborn
 click==8.0.4
 parse
 openpyxl
+seaborn
