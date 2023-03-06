@@ -18,13 +18,15 @@ if verified:
      instrument= st.text_input('Instrument name','instrument 1')
      if rows is None:
           st.write(Data_df) 
-     if rows is not None:  
+     try:  
+           st.subheader('Select the row parameter ')
              dataset=Data_df.iloc[rows[0]:]
              result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
              list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
              list3=instrument*dimension
+     except:
           
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
