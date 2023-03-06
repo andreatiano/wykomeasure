@@ -19,7 +19,6 @@ if verified:
      if rows is None:
           plotData1=st.expander(' Dataset',True)
           plotData1.table(Data_df)
-          plotData1.download_button('Download Dataset',Data_df.to_csv(),'Total_measurement.csv')
           st.subheader('Select the row parameter ')
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
@@ -44,8 +43,6 @@ if verified:
              #finalDatase=dataset[column]
              
              if rows is not None:  
-                    plotData1=st.expander(' Dataset',True)
-                    plotData1.table(dataset)
                     plotData1.download_button('Download Dataset',dataset.to_csv(),'Total_measurement.csv')
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
