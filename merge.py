@@ -36,7 +36,6 @@ if verified:
                 list2=list2*dimension
                 list4=instrument*dimension
                 list=list+list2
-                list3=list3+list4
              dataset['Wafer']=list
              dataset['Instrument']=list3
              #column.append('Wafer')
