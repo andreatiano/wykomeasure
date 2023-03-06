@@ -53,7 +53,8 @@ if verified:
              try:
                dataset_pivot=dataset.pivot_table(index=index, columns=col, values=value)
                plotData=st.expander('Final Dataset',True)
-               plotData.table(dataset_pivot)
-               plotData.download_button('Download current Dataset',dataset_pivot.to_csv(),'dataset_pivot.csv')
+               plotData.download_button('Download current Pivot table',dataset_pivot.to_csv(),'dataset_pivot.csv')
+               plotData.write(dataset_pivot)
+               
              except:
                st.subheader('Select the parameter to generate a pivt table')
