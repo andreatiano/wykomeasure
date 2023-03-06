@@ -42,8 +42,7 @@ if verified:
              #column.append('Wafer')
              #finalDatase=dataset[column]
              
-             if rows is not None:  
-                    plotData1.download_button('Download Dataset',dataset.to_csv(),'Total_measurement.csv')
+             plotData1.download_button('Download Dataset',dataset.to_csv(),'Total_measurement.csv')
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
