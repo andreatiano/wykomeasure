@@ -25,7 +25,7 @@ if verified:
              list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
-             list3=instrument*dimension
+             list3=instrument
            
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
