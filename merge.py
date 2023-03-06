@@ -16,8 +16,8 @@ if verified:
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index)
      instrument= st.text_input('Instrument name','instrument 1')
+     plotData1=st.expander(' Dataset',True)
      if rows is None:
-          plotData1=st.expander(' Dataset',True)
           plotData1.table(Data_df)
           st.subheader('Select the row parameter ')
      if rows is not None:  
