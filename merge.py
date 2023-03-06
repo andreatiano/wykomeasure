@@ -18,6 +18,7 @@ if verified:
      instrument= st.text_input('Instrument name','instrument 1')
      if rows is None:
           st.write(Data_df)
+          plotData.download_button('Download current Dataset',Data_df.to_csv(),'Total_measurement.csv')
           st.subheader('Select the row parameter ')
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
@@ -53,7 +54,7 @@ if verified:
                dataset=dataset.pivot_table(index=index, columns=col, values=value)
                plotData=st.expander('Final Dataset',True)
                plotData.table(dataset)
-               plotData.download_button('Download current Dataset',dataset.to_csv(),'Measure.csv')
+               plotData.download_button('Download current Dataset',dataset.to_csv(),'Pivot_table.csv')
              except:
                st.subheader('Select the parameter to generate a pivt table')
                
