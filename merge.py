@@ -38,7 +38,7 @@ if verified:
                 list=list+list2
                 list3=list3+list4
              dataset['Wafer']=list
-             dataset['Instrument']=list4
+             dataset['Instrument']=list3
              #column.append('Wafer')
              #finalDatase=dataset[column]
              
