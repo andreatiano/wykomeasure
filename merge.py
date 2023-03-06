@@ -17,8 +17,9 @@ if verified:
      'select the row of the first measure',Data_df.index)
      instrument= st.text_input('Instrument name','instrument 1')
      if rows is None:
-          st.write(Data_df)
-          plotData.download_button('Download current Dataset',Data_df.to_csv(),'Total_measurement.csv')
+          plotData1=st.expander(' Dataset',True)
+          plotData1.table(Data_df)
+          plotData1.download_button('Download Dataset',Data_df.to_csv(),'Total_measurement.csv')
           st.subheader('Select the row parameter ')
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
