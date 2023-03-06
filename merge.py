@@ -16,9 +16,8 @@ if verified:
      rows = plotCol.multiselect(
      'select the row of the first measure',Data_df.index)
      instrument= st.text_input('Instrument name','instrument 1')
-     plotData1=st.expander(' Dataset',True)
      if rows is None:
-          plotData1.table(Data_df)
+          st.write(Data_df)
           st.subheader('Select the row parameter ')
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
@@ -26,7 +25,7 @@ if verified:
              list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
-             list3=instrument
+             list3=instrument*dimension
            
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
@@ -37,12 +36,14 @@ if verified:
                 list2=list2*dimension
                 list4=instrument*dimension
                 list=list+list2
+                list3=list3+list4
              dataset['Wafer']=list
-             dataset['Instrument']=list3
+             dataset['Instrument']=list4
              #column.append('Wafer')
              #finalDatase=dataset[column]
-             
-             plotData1.download_button('Download Dataset',dataset.to_csv(),'Total_measurement.csv')
+             st.download_button('Download current Dataset',dataset.to_csv(),'dataset.csv')
+             if rows is not None:  
+               st.write(dataset) 
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
@@ -50,12 +51,9 @@ if verified:
              value = plotCol.multiselect(
                               'select the values of the pivot tablen',dataset.columns)
              try:
-               dataset=dataset.pivot_table(index=index, columns=col, values=value)
+               dataset_pivot=dataset.pivot_table(index=index, columns=col, values=value)
                plotData=st.expander('Final Dataset',True)
-               plotData.table(dataset)
-               plotData.download_button('Download current Dataset',dataset.to_csv(),'Pivot_table.csv')
+               plotData.table(dataset_pivot)
+               plotData.download_button('Download current Dataset',dataset_pivot.to_csv(),'dataset_pivot.csv')
              except:
                st.subheader('Select the parameter to generate a pivt table')
-               
-             
-         
