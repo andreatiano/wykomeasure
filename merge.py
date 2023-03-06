@@ -25,7 +25,7 @@ if verified:
              list=result1.fixed
              dimension=len(dataset)
              list=list*dimension
-             list3=instrument*dimension
+             list3=instrument
            
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
@@ -34,11 +34,9 @@ if verified:
                 result = parse.search('CarrierAtPort1.{}_', Data[l].name)
                 list2=result.fixed
                 list2=list2*dimension
-                list4=instrument*dimension
                 list=list+list2
-                list3=list3+list4
              dataset['Wafer']=list
-             dataset['Instrument']=list4
+             dataset['Instrument']=list3
              #column.append('Wafer')
              #finalDatase=dataset[column]
              st.download_button('Download current Dataset',dataset.to_csv(),'dataset.csv')
