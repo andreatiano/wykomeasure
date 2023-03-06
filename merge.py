@@ -44,7 +44,9 @@ if verified:
              #finalDatase=dataset[column]
              
              if rows is not None:  
-               st.write(dataset) 
+                    plotData1=st.expander(' Dataset',True)
+                    plotData1.table(dataset)
+                    plotData1.download_button('Download Dataset',dataset.to_csv(),'Total_measurement.csv')
              index = plotCol.multiselect(
                     'select the index of the pivot table',dataset.columns)  
              col = plotCol.multiselect(
