@@ -21,21 +21,21 @@ if verified:
           st.subheader('Select the row parameter ')
      if rows is not None:  
              dataset=Data_df.iloc[rows[0]:]
-             result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
-             list=result1.fixed
+             #result1 = parse.search('CarrierAtPort1.{}_', Data[0].name)
+             #list=result1.fixed
              dimension=len(dataset)
-             list=list*dimension
+             #list=list*dimension
              list3=instrument
            
              for l in range (1,len(Data)):
                 Datafor_df = pd.read_csv(Data[l])
                 Datafor_df=Datafor_df.iloc[rows[0]:]
                 dataset=pd.concat([dataset,Datafor_df],axis=0)
-                result = parse.search('CarrierAtPort1.{}_', Data[l].name)
-                list2=result.fixed
-                list2=list2*dimension
+                #result = parse.search('CarrierAtPort1.{}_', Data[l].name)
+                #list2=result.fixed
+                #list2=list2*dimension
                 list=list+list2
-             dataset['Wafer']=list
+             #dataset['Wafer']=list
              dataset['Instrument']=list3
              #column.append('Wafer')
              #finalDatase=dataset[column]
