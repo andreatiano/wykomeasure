@@ -34,7 +34,7 @@ if verified:
                 #result = parse.search('CarrierAtPort1.{}_', Data[l].name)
                 #list2=result.fixed
                 #list2=list2*dimension
-                list=list+list2
+                #list=list+list2
              #dataset['Wafer']=list
              dataset['Instrument']=list3
              #column.append('Wafer')
