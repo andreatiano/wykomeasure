@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import parse
+import matplotlib.mlab as mlab
 st.set_page_config(layout="wide")
 plotCol, dataCol = st.columns([2,1])
 importExp=st.sidebar.expander('Import Option')
@@ -56,3 +57,13 @@ if verified:
                
              except:
                st.subheader('Select the parameter to generate a pivt table')
+               col = sidebar.multiselect(
+     'select the column to plot',dataset_pivot.columns)
+               hist=st.sidebar.button("generate a fitted istogram")
+               if hist:
+                    (mu, sigma) = norm.fit(dataset_pivot[col])
+                    n, bins, patches = plt.hist(dataset_pivot[col], 60, normed=1, facecolor='green', alpha=0.75)
+                    
+                    y = mlab.normpdf( bins, mu, sigma)
+                    l = plt.plot(bins, y, 'r--', linewidth=2)
+                    plt.show()
